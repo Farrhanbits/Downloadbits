@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Instagram, Pin, Twitter, Layers, ArrowUpRight, ShieldCheck, Zap, Sparkles } from 'lucide-react';
+import { Instagram, Pin, Twitter, Youtube, Layers, ArrowUpRight, ShieldCheck, Zap, Sparkles } from 'lucide-react';
 
 interface MegaMenuProps {
   onClose?: () => void;
@@ -38,6 +38,14 @@ export const MegaMenu: React.FC<MegaMenuProps> = ({ onClose, onMouseEnter, onMou
       badge: '1080P',
     },
     {
+      name: 'YouTube Downloader',
+      href: '/youtube-downloader',
+      desc: 'Download YouTube Shorts, 1080p Full HD Videos, and extract MP3 tracks.',
+      icon: Youtube,
+      color: 'from-red-600 to-amber-600',
+      badge: 'SHORTS',
+    },
+    {
       name: 'Universal Downloader',
       href: '/all-in-one-downloader',
       desc: 'All-platform auto-detect downloader. Works with any video or photo link.',
@@ -70,8 +78,8 @@ export const MegaMenu: React.FC<MegaMenuProps> = ({ onClose, onMouseEnter, onMou
           </div>
         </div>
 
-        {/* 4 Tool Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        {/* 5 Tool Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-3">
           {tools.map((tool) => {
             const Icon = tool.icon;
             return (
@@ -79,30 +87,30 @@ export const MegaMenu: React.FC<MegaMenuProps> = ({ onClose, onMouseEnter, onMou
                 key={tool.href}
                 href={tool.href}
                 onClick={onClose}
-                className="group relative flex flex-col justify-between p-4 rounded-xl bg-white/[0.03] hover:bg-white/[0.08] border border-white/5 hover:border-violet-500/40 transition-all duration-200"
+                className="group relative flex flex-col justify-between p-3.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.08] border border-white/5 hover:border-violet-500/40 transition-all duration-200"
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <div className={`p-3 rounded-xl bg-gradient-to-br ${tool.color} text-white shadow-md group-hover:scale-105 transition-transform`}>
-                      <Icon className="w-5 h-5" />
+                    <div className={`p-2.5 rounded-xl bg-gradient-to-br ${tool.color} text-white shadow-md group-hover:scale-105 transition-transform`}>
+                      <Icon className="w-4 h-4" />
                     </div>
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-violet-900/50 text-violet-300 border border-violet-700/50">
+                    <span className="text-[9px] font-mono px-2 py-0.5 rounded-full bg-violet-900/50 text-violet-300 border border-violet-700/50">
                       {tool.badge}
                     </span>
                   </div>
 
                   <div>
-                    <h4 className="text-sm font-bold text-white group-hover:text-violet-300 transition-colors flex items-center gap-1">
+                    <h4 className="text-xs font-bold text-white group-hover:text-violet-300 transition-colors flex items-center gap-1">
                       {tool.name}
-                      <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-all transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-violet-400" />
+                      <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-all transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-violet-400" />
                     </h4>
-                    <p className="text-xs text-zinc-400 mt-1.5 leading-relaxed">
+                    <p className="text-[11px] text-zinc-400 mt-1 leading-relaxed line-clamp-2">
                       {tool.desc}
                     </p>
                   </div>
                 </div>
 
-                <div className="mt-4 pt-3 border-t border-white/5 text-[11px] font-mono text-violet-400 group-hover:text-violet-300 flex items-center justify-between">
+                <div className="mt-3 pt-2 border-t border-white/5 text-[10px] font-mono text-violet-400 group-hover:text-violet-300 flex items-center justify-between">
                   <span>Open Tool</span>
                   <span>→</span>
                 </div>

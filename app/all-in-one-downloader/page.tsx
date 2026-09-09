@@ -4,7 +4,7 @@ import React from 'react';
 import { DownloadEngine } from '@/components/downloader/DownloadEngine';
 import { StepCards } from '@/components/sections/StepCards';
 import { FAQAccordion } from '@/components/sections/FAQAccordion';
-import { Layers, Instagram, Pin, Twitter, Youtube, Video, CheckCircle2, ShieldCheck, Zap } from 'lucide-react';
+import { Layers, Instagram, Pin, Twitter, Youtube, Video } from 'lucide-react';
 
 export default function AllInOneDownloaderPage() {
   const supported = [
@@ -24,7 +24,7 @@ export default function AllInOneDownloaderPage() {
           UNIVERSAL MEDIA DOWNLOADER
         </div>
 
-        <h1 className="text-4xl sm:text-6xl font-black tracking-tight text-white">
+        <h1 className="font-gt-super text-4xl sm:text-6xl font-bold tracking-tight text-white leading-tight">
           All-in-One <span className="gradient-text-vivid">Universal Media Downloader</span>
         </h1>
 
@@ -33,7 +33,7 @@ export default function AllInOneDownloaderPage() {
         </p>
 
         {/* Downloader Input Box */}
-        <div className="pt-4 max-w-2xl mx-auto">
+        <div className="pt-4 max-w-3xl mx-auto">
           <DownloadEngine defaultPlatform="unknown" />
         </div>
       </section>
@@ -41,7 +41,7 @@ export default function AllInOneDownloaderPage() {
       {/* Supported Platforms Grid */}
       <section className="max-w-7xl mx-auto px-4">
         <div className="text-center space-y-3 mb-10">
-          <h2 className="text-2xl font-bold text-white">Supported Platforms & Media Formats</h2>
+          <h2 className="font-gt-super text-2xl sm:text-3xl font-bold text-white">Supported Platforms &amp; Media Formats</h2>
           <p className="text-sm text-zinc-400">Works with all major social networks without requiring specialized apps.</p>
         </div>
 

@@ -21,10 +21,10 @@ export default function HomePage() {
             </Badge>
           </div>
 
-          {/* Centered Heading */}
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-white leading-[1.15]">
+          {/* Centered Heading with GT Super Serif Style */}
+          <h1 className="font-gt-super text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white leading-[1.15]">
             Download anything,{' '}
-            <span className="bg-gradient-to-r from-violet-400 via-purple-300 to-pink-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-pink-400 via-purple-300 to-violet-400 bg-clip-text text-transparent">
               instantly.
             </span>
           </h1>
@@ -35,7 +35,7 @@ export default function HomePage() {
           </p>
 
           {/* Centered URL Input Engine */}
-          <div className="pt-2 max-w-2xl mx-auto">
+          <div className="pt-2 max-w-3xl mx-auto">
             <DownloadEngine />
           </div>
 
@@ -58,7 +58,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Smooth Gradient Fade at Bottom of Banner — prevents sudden black border line */}
+        {/* Smooth Gradient Fade at Bottom of Banner */}
         <div className="absolute -bottom-12 left-0 right-0 h-48 bg-gradient-to-b from-transparent via-[#050506]/70 to-[#050506] pointer-events-none z-10" />
       </section>
 

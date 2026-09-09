@@ -20,11 +20,21 @@
   --text-muted: #6B7280;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--bg-base);
   color: var(--text-primary);
   overflow-x: hidden;
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+/* GT Super Display Bold Serif Font Utility (Upright, non-italic) */
+.font-gt-super {
+  font-family: 'GT Super', 'GT Super Display', var(--font-dm-serif), var(--font-gt-super), 'DM Serif Display', 'Playfair Display', Georgia, serif !important;
+  font-style: normal !important;
 }
 
 /* Glassmorphism card utilities */

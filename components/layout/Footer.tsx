@@ -2,12 +2,25 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { ShieldAlert, Heart, Github, Twitter, Instagram, ArrowDownToLine, Code2 } from 'lucide-react';
+import {
+  ShieldAlert,
+  Heart,
+  Github,
+  Twitter,
+  Instagram,
+  Linkedin,
+  Framer,
+  ArrowDownToLine,
+  Sparkles,
+} from 'lucide-react';
 
 export const Footer = () => {
   return (
-    <footer className="relative z-10 border-t border-white/10 bg-[#050506] pt-16 pb-12 text-zinc-400">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="relative z-10 border-t border-white/10 bg-[#050506] pt-16 pb-12 text-zinc-400 overflow-hidden">
+      {/* Background Subtle Ambient Glow */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-violet-600/10 blur-[120px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-10 pb-12 border-b border-white/10">
           {/* Brand Info */}
           <div className="md:col-span-2 space-y-4">
@@ -22,23 +35,60 @@ export const Footer = () => {
               </span>
             </Link>
             <p className="text-sm text-zinc-400 leading-relaxed max-w-sm">
-              Download anything, instantly. The fastest, watermark-free multi-platform media downloader for Instagram, Pinterest, Twitter/X, and more.
+              Download anything, instantly. The fastest, watermark-free multi-platform media downloader for Instagram, Pinterest, Twitter/X, and YouTube.
             </p>
 
-            <div className="flex items-center gap-3 pt-2">
-              <a href="#" className="p-2 rounded-lg bg-white/5 border border-white/10 hover:border-violet-500/50 hover:text-violet-400 transition-colors">
+            {/* Social Links */}
+            <div className="flex flex-wrap items-center gap-2.5 pt-2">
+              <a
+                href="https://x.com/farhanbits"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Twitter / X"
+                className="p-2.5 rounded-xl bg-white/5 border border-white/10 hover:border-violet-500/50 hover:bg-violet-600/10 hover:text-sky-400 transition-all duration-200"
+              >
                 <Twitter className="w-4 h-4" />
               </a>
-              <a href="#" className="p-2 rounded-lg bg-white/5 border border-white/10 hover:border-violet-500/50 hover:text-violet-400 transition-colors">
+              <a
+                href="https://www.instagram.com/farhanbits"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Instagram"
+                className="p-2.5 rounded-xl bg-white/5 border border-white/10 hover:border-pink-500/50 hover:bg-pink-600/10 hover:text-pink-400 transition-all duration-200"
+              >
                 <Instagram className="w-4 h-4" />
               </a>
-              <a href="#" className="p-2 rounded-lg bg-white/5 border border-white/10 hover:border-violet-500/50 hover:text-violet-400 transition-colors">
+              <a
+                href="https://www.linkedin.com/in/farrhan-ahmed"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="LinkedIn"
+                className="p-2.5 rounded-xl bg-white/5 border border-white/10 hover:border-blue-500/50 hover:bg-blue-600/10 hover:text-blue-400 transition-all duration-200"
+              >
+                <Linkedin className="w-4 h-4" />
+              </a>
+              <a
+                href="https://github.com/Farrhanbits"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="GitHub"
+                className="p-2.5 rounded-xl bg-white/5 border border-white/10 hover:border-purple-500/50 hover:bg-purple-600/10 hover:text-purple-300 transition-all duration-200"
+              >
                 <Github className="w-4 h-4" />
+              </a>
+              <a
+                href="https://www.framer.com/@farhanbits/"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Framer Portfolio"
+                className="p-2.5 rounded-xl bg-white/5 border border-white/10 hover:border-pink-500/50 hover:bg-pink-600/10 hover:text-pink-300 transition-all duration-200"
+              >
+                <Framer className="w-4 h-4" />
               </a>
             </div>
           </div>
 
-          {/* Tools Links */}
+          {/* Popular Tools Links */}
           <div className="space-y-3">
             <h4 className="text-sm font-semibold text-white uppercase tracking-wider">Popular Tools</h4>
             <ul className="space-y-2.5 text-sm">
@@ -49,12 +99,17 @@ export const Footer = () => {
               </li>
               <li>
                 <Link href="/pinterest-downloader" className="hover:text-violet-300 transition-colors">
-                  Pinterest Video Downloader
+                  Pinterest Downloader
                 </Link>
               </li>
               <li>
                 <Link href="/twitter-downloader" className="hover:text-violet-300 transition-colors">
                   Twitter / X Downloader
+                </Link>
+              </li>
+              <li>
+                <Link href="/youtube-downloader" className="hover:text-violet-300 transition-colors">
+                  YouTube Downloader
                 </Link>
               </li>
               <li>
@@ -76,7 +131,7 @@ export const Footer = () => {
               </li>
               <li>
                 <Link href="/all-in-one-downloader" className="hover:text-violet-300 transition-colors">
-                  Supported Media Formats
+                  Supported Formats
                 </Link>
               </li>
               <li>
@@ -109,27 +164,33 @@ export const Footer = () => {
         <div className="mt-8 p-4 rounded-xl bg-white/[0.02] border border-white/5 flex items-start gap-3 text-xs text-zinc-500">
           <ShieldAlert className="w-4 h-4 text-violet-400 shrink-0 mt-0.5" />
           <p className="leading-relaxed">
-            <strong>Disclaimer:</strong> Downloadbits is an independent online personal utility tool for media content backup. We do not host, store, or retransmit any copyrighted videos or photos on our servers. All media files belong to their respective content creators and owners. Please obtain permission from the original creator before downloading copyrighted material.
+            <strong>Disclaimer:</strong> Downloadbits is an independent online utility tool for personal media backup. We do not host, store, or retransmit any copyrighted videos or photos on our servers. All media files belong to their respective content creators.
           </p>
         </div>
 
-        {/* Bottom Bar with Developer Credit */}
-        <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
-          <p>© {new Date().getFullYear()} Downloadbits. All rights reserved.</p>
-          <div className="flex items-center gap-1.5 text-zinc-400 font-mono">
-            <Code2 className="w-3.5 h-3.5 text-violet-400" />
-            <span>Designed & Developed with</span>
-            <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500 inline" />
-            <span>by</span>
-            <a
-              href="https://farhanbits.dev/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-bold text-violet-300 hover:text-pink-400 transition-colors underline decoration-violet-500/50 underline-offset-4"
-            >
-              farhanbits
-            </a>
-          </div>
+        {/* Centered Glowing Developer Badge & Copyright */}
+        <div className="mt-10 flex flex-col items-center justify-center gap-5 text-center">
+          {/* Centered Glowing Badge */}
+          <a
+            href="https://farhanbits.dev/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-violet-950/80 via-purple-950/80 to-pink-950/80 border border-violet-500/40 hover:border-pink-400/80 shadow-[0_0_20px_rgba(168,85,247,0.25)] hover:shadow-[0_0_35px_rgba(236,72,153,0.5)] transition-all duration-300 hover:scale-[1.03]"
+          >
+            <Sparkles className="w-4 h-4 text-amber-300 animate-pulse" />
+            <span className="text-xs font-mono font-medium text-zinc-300 group-hover:text-white transition-colors">
+              Designed &amp; Developed with{' '}
+              <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500 inline mx-0.5 animate-bounce" /> by{' '}
+              <span className="font-bold bg-gradient-to-r from-violet-400 via-pink-400 to-amber-300 bg-clip-text text-transparent underline decoration-violet-400/60 underline-offset-4">
+                farhanbits
+              </span>
+            </span>
+          </a>
+
+          {/* Copyright notice */}
+          <p className="text-xs text-zinc-500 font-mono">
+            © {new Date().getFullYear()} Downloadbits. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>

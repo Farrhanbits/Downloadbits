@@ -96,3 +96,58 @@ export function detectPlatform(url: string): PlatformMetadata {
 
   return PLATFORMS.unknown;
 }
+
+export function parseUrlMetadata(url: string) {
+  const platform = detectPlatform(url);
+  const clean = url.trim();
+
+  let idOrShortcode = 'media';
+  let author = '@creator';
+  let mediaType = 'Video';
+  let title = 'Social Media Video Clip';
+
+  if (platform.id === 'instagram') {
+    const reelMatch = clean.match(/(?:p|reel|reels|tv)\/([A-Za-z0-9_-]+)/i);
+    const userMatch = clean.match(/instagram\.com\/([A-Za-z0-9_.-]+)\/(?:p|reel)/i);
+    if (reelMatch) idOrShortcode = reelMatch[1];
+    if (userMatch) author = `@${userMatch[1]}`;
+    else author = '@instagram_creator';
+
+    mediaType = clean.includes('/reel') ? 'Reel' : 'Post';
+    title = `Instagram ${mediaType} (#${idOrShortcode}) — 1080p Original Stream`;
+  } else if (platform.id === 'pinterest') {
+    const pinMatch = clean.match(/(?:pin\/|pin\.it\/)([0-9A-Za-z_-]+)/i);
+    if (pinMatch) idOrShortcode = pinMatch[1];
+    mediaType = 'Pin';
+    author = '@pinterest_creator';
+    title = `Pinterest Idea ${mediaType} (#${idOrShortcode}) — HD Media`;
+  } else if (platform.id === 'twitter') {
+    const tweetMatch = clean.match(/(?:twitter\.com|x\.com)\/([A-Za-z0-9_]+)\/status\/([0-9]+)/i);
+    if (tweetMatch) {
+      author = `@${tweetMatch[1]}`;
+      idOrShortcode = tweetMatch[2];
+    }
+    mediaType = 'Video Clip';
+    title = `Twitter / X ${mediaType} (#${idOrShortcode}) — 1080p HD`;
+  } else if (platform.id === 'tiktok') {
+    const ttMatch = clean.match(/tiktok\.com\/@([A-Za-z0-9_.-]+)\/video\/([0-9]+)/i);
+    if (ttMatch) {
+      author = `@${ttMatch[1]}`;
+      idOrShortcode = ttMatch[2];
+    }
+    mediaType = 'TikTok Video';
+    title = `TikTok Watermark-Free Video (#${idOrShortcode})`;
+  } else {
+    idOrShortcode = 'stream_' + Math.floor(Math.random() * 10000);
+    title = `Universal Media Stream (#${idOrShortcode})`;
+  }
+
+  return {
+    platform,
+    idOrShortcode,
+    author,
+    mediaType,
+    title,
+    filenamePrefix: `Downloadbits_${platform.name.replace(/[^a-zA-Z0-9]/g, '')}_${idOrShortcode}`,
+  };
+}

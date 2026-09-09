@@ -1,15 +1,13 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { DownloadEngine } from '@/components/downloader/DownloadEngine';
 import { StepCards } from '@/components/sections/StepCards';
 import { FAQAccordion } from '@/components/sections/FAQAccordion';
-import { Instagram, Video, Image as ImageIcon, Music, Sparkles, Check, ArrowRight } from 'lucide-react';
+import { Instagram } from 'lucide-react';
 import Link from 'next/link';
 
 export default function InstagramDownloaderPage() {
-  const [activeTab, setActiveTab] = useState<'reels' | 'posts' | 'stories' | 'audio'>('reels');
-
   const igFaqs = [
     {
       q: 'How do I download Instagram Reels in 1080p HD without watermark?',
@@ -38,52 +36,19 @@ export default function InstagramDownloaderPage() {
           INSTAGRAM MEDIA DOWNLOADER
         </div>
 
-        <h1 className="text-4xl sm:text-6xl font-black tracking-tight text-white">
-          Download Instagram <span className="bg-gradient-to-r from-pink-500 via-rose-500 to-purple-500 bg-clip-text text-transparent">Reels, Posts & Stories</span>
+        <h1 className="font-gt-super text-4xl sm:text-6xl font-bold tracking-tight text-white leading-tight">
+          Download Instagram{' '}
+          <span className="bg-gradient-to-r from-pink-500 via-rose-500 to-purple-500 bg-clip-text text-transparent">
+            Reels, Posts &amp; Stories
+          </span>
         </h1>
 
         <p className="text-base text-zinc-400 max-w-2xl mx-auto leading-relaxed">
-          Fast, free, and watermark-free Instagram video & photo downloader. Save high-resolution Reels, carousel posts, and audio tracks in seconds.
+          Fast, free, and watermark-free Instagram video &amp; photo downloader. Save high-resolution Reels, carousel posts, and audio tracks in seconds.
         </p>
 
-        {/* Feature Tabs */}
-        <div className="inline-flex p-1.5 rounded-2xl bg-white/5 border border-white/10 max-w-lg mx-auto w-full justify-around text-xs font-medium">
-          <button
-            onClick={() => setActiveTab('reels')}
-            className={`flex-1 py-2 px-3 rounded-xl flex items-center justify-center gap-1.5 transition-all ${
-              activeTab === 'reels' ? 'bg-pink-600 text-white font-bold shadow-lg shadow-pink-600/30' : 'text-zinc-400 hover:text-white'
-            }`}
-          >
-            <Video className="w-3.5 h-3.5" /> Reels
-          </button>
-          <button
-            onClick={() => setActiveTab('posts')}
-            className={`flex-1 py-2 px-3 rounded-xl flex items-center justify-center gap-1.5 transition-all ${
-              activeTab === 'posts' ? 'bg-pink-600 text-white font-bold shadow-lg shadow-pink-600/30' : 'text-zinc-400 hover:text-white'
-            }`}
-          >
-            <ImageIcon className="w-3.5 h-3.5" /> Photos / Posts
-          </button>
-          <button
-            onClick={() => setActiveTab('stories')}
-            className={`flex-1 py-2 px-3 rounded-xl flex items-center justify-center gap-1.5 transition-all ${
-              activeTab === 'stories' ? 'bg-pink-600 text-white font-bold shadow-lg shadow-pink-600/30' : 'text-zinc-400 hover:text-white'
-            }`}
-          >
-            <Sparkles className="w-3.5 h-3.5" /> Stories
-          </button>
-          <button
-            onClick={() => setActiveTab('audio')}
-            className={`flex-1 py-2 px-3 rounded-xl flex items-center justify-center gap-1.5 transition-all ${
-              activeTab === 'audio' ? 'bg-pink-600 text-white font-bold shadow-lg shadow-pink-600/30' : 'text-zinc-400 hover:text-white'
-            }`}
-          >
-            <Music className="w-3.5 h-3.5" /> Audio MP3
-          </button>
-        </div>
-
-        {/* Downloader Input Box */}
-        <div className="pt-4">
+        {/* Downloader Input Engine with integrated tab selector */}
+        <div className="pt-4 max-w-3xl mx-auto">
           <DownloadEngine defaultPlatform="instagram" />
         </div>
       </section>
@@ -95,8 +60,8 @@ export default function InstagramDownloaderPage() {
       <section className="max-w-7xl mx-auto px-4">
         <div className="p-8 rounded-2xl glass-card bg-gradient-to-r from-violet-950/40 via-[#0c0c10] to-purple-950/40 border border-violet-500/30 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
-            <h3 className="text-xl font-bold text-white">Need to download from other platforms?</h3>
-            <p className="text-sm text-zinc-400 mt-1">Downloadbits supports Pinterest, Twitter / X, TikTok, and YouTube Shorts as well.</p>
+            <h3 className="font-gt-super text-xl font-bold text-white">Need to download from other platforms?</h3>
+            <p className="text-sm text-zinc-400 mt-1">Downloadbits supports Pinterest, Twitter / X, and YouTube Shorts as well.</p>
           </div>
           <div className="flex items-center gap-4 shrink-0">
             <Link href="/pinterest-downloader" className="px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-xs font-semibold hover:border-violet-400 text-zinc-200">
